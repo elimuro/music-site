@@ -40,14 +40,14 @@
 
   // Service detail map (matches .condition-* classes in detail_releases.html)
   const SERVICES_DETAIL = [
-    { field: 'Spotify URL',     cls: 'condition-spotify',    img: 'images/service-image.png',   name: 'Spotify' },
-    { field: 'Bandcamp URL',    cls: 'condition-bandcamp',   img: 'images/bandcamp.png',        name: 'Bandcamp' },
-    { field: 'Soundcloud URL',  cls: 'condition-soundcloud', img: 'images/soundcloud.png',      name: 'Soundcloud' },
-    { field: 'Apple Music URL', cls: 'condition-applemusic', img: 'images/service-image-1.png', name: 'Apple Music' },
-    { field: 'iTunes URL',      cls: 'condition-itunes',     img: 'images/service-image-2.png', name: 'iTunes' },
-    { field: 'Deezer URL',      cls: 'condition-deezer',     img: 'images/service-image-4.png', name: 'Deezer' },
-    { field: 'Amazon URL',      cls: 'condition-amazon',     img: 'images/service-image-3.png', name: 'Amazon Music' },
-    { field: 'Tidal URL',       cls: 'condition-tidal',      img: 'images/service-image-5.png', name: 'Tidal' },
+    { field: 'Spotify URL',     cls: 'condition-spotify',    img: 'images/service-image.png',   name: 'Spotify',       cta: 'Listen' },
+    { field: 'Bandcamp URL',    cls: 'condition-bandcamp',   img: 'images/bandcamp.png',        name: 'Bandcamp',      cta: 'Buy' },
+    { field: 'Soundcloud URL',  cls: 'condition-soundcloud', img: 'images/soundcloud.png',      name: 'Soundcloud',    cta: 'Listen' },
+    { field: 'Apple Music URL', cls: 'condition-applemusic', img: 'images/service-image-1.png', name: 'Apple Music',   cta: 'Listen' },
+    { field: 'iTunes URL',      cls: 'condition-itunes',     img: 'images/service-image-2.png', name: 'iTunes',        cta: 'Buy' },
+    { field: 'Deezer URL',      cls: 'condition-deezer',     img: 'images/service-image-4.png', name: 'Deezer',        cta: 'Listen' },
+    { field: 'Amazon URL',      cls: 'condition-amazon',     img: 'images/service-image-3.png', name: 'Amazon Music',  cta: 'Buy' },
+    { field: 'Tidal URL',       cls: 'condition-tidal',      img: 'images/service-image-5.png', name: 'Tidal',         cta: 'Listen' },
   ];
 
   // ── Fetch data ─────────────────────────────────────────────────────────────
@@ -284,8 +284,6 @@
     }
 
     // Streaming service links (show/hide each .condition-* block)
-    // Also fix button CTA text: show "Pre save" if pre-release, otherwise "Listen"/"Buy"
-    const isPreRelease = release['Pre release'];
     SERVICES_DETAIL.forEach(svc => {
       const container = document.querySelector(`.${svc.cls}`);
       if (!container) return;
@@ -293,12 +291,9 @@
       if (url) {
         container.querySelector('a').href = url;
         container.style.display = '';
-        // Show only the relevant CTA label
-        const btns = container.querySelectorAll('.button-text');
-        if (btns.length === 2) {
-          btns[0].style.display = isPreRelease ? '' : 'none';  // "Pre save" / "Pre Order" / "Buy"
-          btns[1].style.display = isPreRelease ? 'none' : '';  // "Listen" / "Buy"
-        }
+        // Replace all button-text elements with a single, correct CTA label
+        const ctaWrapper = container.querySelector('.cta-primary');
+        if (ctaWrapper) ctaWrapper.innerHTML = `<div class="button-text">${svc.cta}</div>`;
       } else {
         container.style.display = 'none';
       }
