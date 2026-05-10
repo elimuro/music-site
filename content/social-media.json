@@ -1,0 +1,44 @@
+[
+  {
+    "Name": "Bandcamp",
+    "Slug": "bandcamp",
+    "Url": "https://elimuro.bandcamp.com/",
+    "icon": "https://uploads-ssl.webflow.com/626c89311a164b0f49a008fa/640d5fd23173163ea3917903_1200px-Bandcamp-button-circle-aqua.svg.png"
+  },
+  {
+    "Name": "Facebook",
+    "Slug": "facebook",
+    "Url": "https://www.facebook.com/eli.muro.music",
+    "icon": "https://uploads-ssl.webflow.com/626c89311a164b0f49a008fa/62772a56d63779fd4994939c_Facebook%20-%20Negative.svg"
+  },
+  {
+    "Name": "Instagram",
+    "Slug": "instagram",
+    "Url": "https://www.instagram.com/eli_muro/",
+    "icon": "https://uploads-ssl.webflow.com/626c89311a164b0f49a008fa/62772a3750acbb157f597701_Instagram%20-%20Negative.svg"
+  },
+  {
+    "Name": "Soundcloud",
+    "Slug": "soundcloud",
+    "Url": "https://soundcloud.com/elimuro",
+    "icon": "https://uploads-ssl.webflow.com/626c89311a164b0f49a008fa/640d5f13561700744cded9cf_SoundCloud.png"
+  },
+  {
+    "Name": "Spotify",
+    "Slug": "spotify",
+    "Url": "https://open.spotify.com/artist/4YGIdH6YJmzb1UFmltc9pV?si=xuy3ZHeHTQyPxm3Iw2Duxg",
+    "icon": "https://uploads-ssl.webflow.com/626c89311a164b0f49a008fa/640d5f243ecaf8ff1445a99d_Spotify.png"
+  },
+  {
+    "Name": "Twitter",
+    "Slug": "twitter",
+    "Url": "https://twitter.com/Delete_Forever_",
+    "icon": "https://uploads-ssl.webflow.com/626c89311a164b0f49a008fa/62772a4ebfb6d42768b697eb_Twitter%20-%20Negative.svg"
+  },
+  {
+    "Name": "youtube",
+    "Slug": "youtube",
+    "Url": "https://www.youtube.com/@Delete_Forever_",
+    "icon": "https://uploads-ssl.webflow.com/626c89311a164b0f49a008fa/62772a41d3ca4e66d475ccb8_YouTube%20-%20Negative.svg"
+  }
+]

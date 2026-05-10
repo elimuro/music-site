@@ -1,0 +1,13 @@
+{
+  "name": "eli-muro-music",
+  "version": "1.0.0",
+  "description": "Eli Muro Music – static site with CSV-driven CMS",
+  "scripts": {
+    "build": "node scripts/generate-json.js",
+    "start": "npx serve . --listen 3000"
+  },
+  "devDependencies": {
+    "papaparse": "^5.4.1",
+    "serve": "^14.2.3"
+  }
+}
