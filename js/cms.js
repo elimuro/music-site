@@ -194,6 +194,10 @@
       return;
     }
 
+    // Webflow marks empty CMS-bound elements with w-dyn-bind-empty (display:none !important).
+    // Strip that class now that we have real data to populate them with.
+    document.querySelectorAll('.w-dyn-bind-empty').forEach(el => el.classList.remove('w-dyn-bind-empty'));
+
     // Background + text colour
     const albumBg = document.querySelector('.album-bg');
     if (release['Primary-colour']) albumBg.style.backgroundColor = release['Primary-colour'];
