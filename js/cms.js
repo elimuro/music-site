@@ -198,10 +198,11 @@
     // Strip that class now that we have real data to populate them with.
     document.querySelectorAll('.w-dyn-bind-empty').forEach(el => el.classList.remove('w-dyn-bind-empty'));
 
-    // Background + text colour
+    // Background image, colour, and text colour
     const albumBg = document.querySelector('.album-bg');
-    if (release['Primary-colour']) albumBg.style.backgroundColor = release['Primary-colour'];
-    if (release['text colour'])    albumBg.style.color            = release['text colour'];
+    if (release['Background-image']) albumBg.style.backgroundImage = `url('${release['Background-image']}')`;
+    if (release['Primary-colour'])   albumBg.style.backgroundColor = release['Primary-colour'];
+    if (release['text colour'])      albumBg.style.color            = release['text colour'];
 
     // Cover art
     const coverImg = document.querySelector('.album-cover-art img');
@@ -283,6 +284,8 @@
     }
 
     // Streaming service links (show/hide each .condition-* block)
+    // Also fix button CTA text: show "Pre save" if pre-release, otherwise "Listen"/"Buy"
+    const isPreRelease = release['Pre release'];
     SERVICES_DETAIL.forEach(svc => {
       const container = document.querySelector(`.${svc.cls}`);
       if (!container) return;
@@ -290,6 +293,12 @@
       if (url) {
         container.querySelector('a').href = url;
         container.style.display = '';
+        // Show only the relevant CTA label
+        const btns = container.querySelectorAll('.button-text');
+        if (btns.length === 2) {
+          btns[0].style.display = isPreRelease ? '' : 'none';  // "Pre save" / "Pre Order" / "Buy"
+          btns[1].style.display = isPreRelease ? 'none' : '';  // "Listen" / "Buy"
+        }
       } else {
         container.style.display = 'none';
       }
