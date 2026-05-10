@@ -6,8 +6,10 @@
     "build": "node scripts/generate-json.js",
     "start": "npx serve . --listen 3000"
   },
+  "dependencies": {
+    "papaparse": "^5.4.1"
+  },
   "devDependencies": {
-    "papaparse": "^5.4.1",
     "serve": "^14.2.3"
   }
 }
